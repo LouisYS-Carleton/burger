@@ -1,0 +1,25 @@
+{
+  "name": "burger-app",
+  "version": "1.0.0",
+  "description": "An app to allow customers to input the name's of burgers they would like to eat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LouisYS-Carleton/burger-app.git"
+  },
+  "author": "Louis YS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LouisYS-Carleton/burger-app/issues"
+  },
+  "homepage": "https://github.com/LouisYS-Carleton/burger-app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5"
+  }
+}
