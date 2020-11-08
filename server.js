@@ -1,5 +1,6 @@
 const express = require('express');
-const mysql = require('mysql')
+const handlebars = require('express-handlebars');
+const mysql = require('mysql');
 
 // Connecting to mysql
 const connection = mysql.createConnection({
@@ -8,18 +9,18 @@ const connection = mysql.createConnection({
     user: "root",
     password: "P0pinahat!",
     database: "burgers_db"
-  }); 
+}); 
   
-  let burgers;
+let burgers;
   
-  connection.connect(function (err) {  
-      if (err) {
-          console.error("Error connecting: " + err.stack);
-          return;
-      }
-      console.log("Connected as ID " + connection.threadId);
-  
-      connection.query("SELECT * FROM burgers", function (error, res) {
-          roles = res.map(role => ({ name: role.title, value: role.id }))
-      })
-  })
+connection.connect(function (err) {  
+    if (err) {
+        console.error("Error connecting: " + err.stack);
+        return;
+    }
+    console.log("Connected as ID " + connection.threadId);
+
+    // connection.query("SELECT * FROM burgers", function (error, res) {
+    //     burgers = res.map(burgers => ({ name: burgers.title, value: burgers.id   }))
+    // })
+})
