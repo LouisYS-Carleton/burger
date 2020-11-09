@@ -1,26 +1,10 @@
 const express = require('express');
 const handlebars = require('express-handlebars');
-const mysql = require('mysql');
 
-// Connecting to mysql
-const connection = mysql.createConnection({
-    host: "localhost",
-    port: 3000,
-    user: "root",
-    password: "P0pinahat!",
-    database: "burgers_db"
-}); 
-  
-let burgers;
-  
-connection.connect(function (err) {  
-    if (err) {
-        console.error("Error connecting: " + err.stack);
-        return;
-    }
-    console.log("Connected as ID " + connection.threadId);
+const app = express();
 
-    // connection.query("SELECT * FROM burgers", function (error, res) {
-    //     burgers = res.map(burgers => ({ name: burgers.title, value: burgers.id   }))
-    // })
-})
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server successfully listening: http://localhost:${PORT}`);
+});
