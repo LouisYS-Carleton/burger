@@ -3,8 +3,8 @@ const handlebars = require('express-handlebars');
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3606;
 
 app.listen(PORT, () => {
-  console.log(`Server successfully listening: http://localhost:${PORT}`);
+    console.log(`Server successfully listening: http://localhost:${PORT}`);
 });
