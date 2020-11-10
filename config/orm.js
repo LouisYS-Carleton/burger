@@ -1,20 +1,27 @@
-const db = require('./connection.js')
+const db = require('./connection')
 
-function selectAll(){
-    db.createQuery('SELECT *')
-}
+const orm = {
+    selectAll: (burgerTable, cb) => {
+        const burgerQuery = `SELECT * FROM ${burgerTable}`;
+        connection.query(burgerQuery, (err, res) => {
+            if (err) throw err;
+            cb(res);
+        });
+    },
+    insertOne: (burgerTable, newBurger, cb) => {
+        const burgerQuery = `INSERT INTO ${burgerTable} (burger_name) VALUES ${newBurger}`;
+        connection.query(burgerQuery, (err, res) => {
+            if (err) throw err;
+            cb(res);
+        });
+    },
+    updateOne: (burgerTable, burgerID, cb) => {
+        const burgerQuery = `UPDATE ${burgerTable} SET devoured = true  WHERE id = ${burgerID}`;
+        connection.query(burgerQuery, (err, res) => {
+            if (err) throw err;
+            cb(res);
+        });
+    }
+};
 
-function insertOne(){
-    db.createQuery('INSERT ? FROM ?')
-}
-
-function updateOne(){
-    db.createQuery('UPDATE ? FROM ?')
-}
-
-module.exports = {selectAll, insertOne, updateOne}
-// let orm = () => {
-//     let selectAll(db.createQuery('SELECT *'))
-//     let insertOne(db.createQuery('INSERT ? FROM ?'))
-//     let updateOne(db.)
-// }
+module.exports = orm;
