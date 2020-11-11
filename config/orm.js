@@ -1,26 +1,22 @@
-const db = require('./connection')
+const connection = require('./connection')
 
 const orm = {
-    selectAll: (burgerTable, cb) => {
-        const burgerQuery = `SELECT * FROM ${burgerTable}`;
-        connection.query(burgerQuery, (err, res) => {
-            if (err) throw err;
-            cb(res);
-        });
+    selectAll: async (burgerTableName) => {
+        const burgerQuery = 'SELECT * FROM ??';
+
+        const [rows] = await connection.query(burgerQuery, [burgerTableName])
+        return rows;
     },
-    insertOne: (burgerTable, newBurger, cb) => {
-        const burgerQuery = `INSERT INTO ${burgerTable} (burger_name) VALUES ${newBurger}`;
-        connection.query(burgerQuery, (err, res) => {
-            if (err) throw err;
-            cb(res);
-        });
+    insertOne: async (burgerTableName, newBurger) => {
+        const burgerQuery = `INSERT INTO ?? (burger_name) VALUES ??`;
+
+        const [rows] = await connection.query(burgerQuery, [burgerTableName], [newBurger])
+        return rows;
     },
-    updateOne: (burgerTable, burgerID, cb) => {
-        const burgerQuery = `UPDATE ${burgerTable} SET devoured = true  WHERE id = ${burgerID}`;
-        connection.query(burgerQuery, (err, res) => {
-            if (err) throw err;
-            cb(res);
-        });
+    updateOne: async (burgerTableName, burgerID) => {
+        const burgerQuery = `UPDATE ?? SET devoured = true  WHERE id = ??`;
+
+        const [rows] = await connection.query(burgerQuery, [burgerTableName], [burgerID])
     }
 };
 

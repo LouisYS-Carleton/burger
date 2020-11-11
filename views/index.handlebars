@@ -1,0 +1,7 @@
+<h2>Ready to devour!</h2>
+            <ul>
+                {{#each burgers}}
+                <li>{{this.burger_name}}</li>
+                <button class="devour-it" data-id="{{this.id}} ">DEVOUR IT!</button>
+                {{/each}}
+            </ul>

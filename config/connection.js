@@ -1,17 +1,13 @@
-const mysql = require('mysql')
+const mysql = require('mysql2')
 
-// async function connect () {
-const connection = mysql.createConnection({
+const defaultConnection = {
     host: 'localhost',
-    port: 3606,
+    port: 3306,
     user: 'root',
-    password: 'P0pinhat!',
+    password: 'P0pinahat!',
     database: 'burgers_db'
-});
-// }
-connection.connect(function(err) {
-    if (err) throw err;
-    console.log(`Connected to DB as id: ${connection.threadId}`)
-});
+};
 
-module.exports = connection;
+const connection = mysql.createConnection(defaultConnection);
+
+module.exports = connection.promise();
