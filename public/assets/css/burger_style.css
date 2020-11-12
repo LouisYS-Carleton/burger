@@ -1,6 +1,6 @@
 body {
     overflow-x: hidden; 
-    padding: 20px;
+    margin: 30px;
     background-color: #bacfff;
 }
 
@@ -64,7 +64,8 @@ body {
 #eat-me {
     background-color:rgb(121, 127, 255); 
     border-radius: 20px;  
-    margin-right: 5px;
+    margin:5px;
+    margin-left: 0px;
 }
 
 #eat-me-title {
@@ -123,7 +124,8 @@ body {
 #full-yet {
     background-color: rgb(255, 108, 137); 
     border-radius: 20px; 
-    margin-right: 5px;
+    margin: 5px;
+    margin-left: 0px;
 }
 
 #full-yet-title {

@@ -14,17 +14,20 @@ router.get('/', async (req,res) => {
 router.get('/app/burgers', async (req, res) => {
     try {
         const data = await burger.selectAll('burgers')
-        res.render('index', {burgers: data}) 
+        res.status(200).json({data: data})
     } catch {
         res.status(500).json(err)
     }
 })
 
-// router.post('/insert-burger', async (req, res) => {
-//     try {
-//         const data = await burger.insertOne('burgers', req.)
-//     }
-//     // console.log(req)
-// })
+router.post('/app/burgers', async (req, res) => {
+    try {
+        const data = await burger.insertOne('burgers', req.body.insertburger, false);
+        res.status(201).json(data);
+    } catch (err) {
+        res.status(500).json(err)
+    }
+    // console.log(req)
+})
 
 module.exports = router

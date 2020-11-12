@@ -5,10 +5,10 @@
     </h1>
 </div>
 
-<form action="/insert-burger" method="post" class="pb-3"">
+<form id='input-form' class="pb-3">
     <div class="form-group">
         <div class="input-group">
-            <input id='insert-burger-field' type="text" class="form-control" maxlength="30" placeholder="Add New Burger! (Max 30 Characters)">
+            <input id='insert-burger-field' name='insertburger' type="text" class="form-control" maxlength="30" placeholder="Add New Burger! (Max 30 Characters)">
             <div class="input-group-append">
                 <button id='insert-burger-button' type="submit" class="btn">Cook Me!</button>
             </div>
@@ -67,3 +67,49 @@
         </div>
     </main>
 </div>
+
+<script>
+    document.getElementById("insert-burger-button").addEventListener("submit", function (event) {
+        event.preventDefault()
+        const newBurger = {
+            burger_name: document.getElementById("insert-burger-field").value.trim(),
+            devoured: false
+        }
+        fetch("/app/burgers", {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newBurger)
+        }).then(response => {
+            console.log(response)
+            if (response.ok) location.reload()
+        })
+    })
+
+    document.querySelectorAll("#yum-btn").forEach(button => {
+        button.addEventListener("click", function () {
+            const id = this.getAttribute("data-id")
+            fetch(`/api/burgers/${id}`, {
+                method: "PATCH",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: id })
+            }).then(response => {
+                console.log(response)
+                if (response.ok) location.reload()
+            })
+        })
+    })
+
+    document.querySelectorAll(".delete-it").forEach(button => {
+        button.addEventListener("click", function () {
+            const id = this.getAttribute("data-id")
+            fetch(`/api/burgers/${id}`, {
+                method: "DELETE",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: id })
+            }).then(response => {
+                console.log(response)
+                if (response.ok) location.reload()
+            })
+        })
+    })
+</script>
