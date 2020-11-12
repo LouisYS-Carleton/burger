@@ -1,7 +1,69 @@
-<h2>Ready to devour!</h2>
-            <ul>
+<div>
+    <h1 id='h1-title'>
+        <img src="assets/img/toppng.com-cartoon-hamburger-png-cheese-burger-clip-art-400x322.png" alt="burger logo" id='logo'>
+        Eat-Da-Burger!
+    </h1>
+</div>
+
+<form action="/insert-burger" method="post" class="pb-3"">
+    <div class="form-group">
+        <div class="input-group">
+            <input id='insert-burger-field' type="text" class="form-control" maxlength="30" placeholder="Add New Burger! (Max 30 Characters)">
+            <div class="input-group-append">
+                <button id='insert-burger-button' type="submit" class="btn">Cook Me!</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <main class="row flex-grow-1">
+        <div class="col-12 col-xl p-3 pt-5 p-lg-5" id='eat-me'>
+            <h2 class="text-center" id='eat-me-title'>- Eat me! -</h2>
+            <ul style='list-style-type: none;'>
                 {{#each burgers}}
-                <li>{{this.burger_name}}</li>
-                <button class="devour-it" data-id="{{this.id}} ">DEVOUR IT!</button>
+                <div class="row" id='burger-rows'>
+                    <div>
+                        <img src="assets/img/burger.png" style="height: 20px; width:20px; margin-right: 20px;" alt='burger'>
+                    </div>
+                    <div>
+                        <li class='logged-burgers-eat'>
+                            {{this.burger_name}}
+                        </li>
+                    </div>
+                    <div>
+                        <button id='yum-btn' class="eat-me" data-id="{{this.id}}">
+                            YUM!
+                        </button>
+                    </div>
+                </div>
+                <hr>
                 {{/each}}
             </ul>
+        </div>
+
+        <div id='full-yet' class="col-12 col-xl p-3 pt-5 p-lg-5">
+            <h2 class="text-center" id='full-yet-title'>- Full yet? -</h2>
+            <ul style='list-style-type: none;'>
+                {{#each burgers}}
+                <div class="row" id='burger-rows'>
+                    <div>
+                        <img src="assets/img/hamburger-bite.png" style="height: 25px; width:25px; margin-right: 20px;" alt="burger with bite">
+                    </div>
+                    <div>
+                        <li class='logged-burgers-eat'>
+                            {{this.burger_name}}
+                        </li>
+                    </div>
+                    <div>
+                        <button id='delete-btn' class="eat-me" data-id="{{this.id}}">
+                            DELETE!
+                        </button>
+                    </div>
+                </div>
+                <hr>
+                {{/each}}
+            </ul>
+        </div>
+    </main>
+</div>
