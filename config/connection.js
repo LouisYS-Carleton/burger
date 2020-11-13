@@ -1,7 +1,5 @@
 const mysql = require("mysql2");
 
-let connection;
-
 try {
   if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL);
@@ -18,4 +16,5 @@ try {
   if (err) throw err;
 }
 
+connection.connect();
 module.exports = connection.promise();
