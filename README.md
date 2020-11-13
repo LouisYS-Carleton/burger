@@ -1,6 +1,8 @@
 # Eat-Da-Burger
 A restaurant app to help burger shop owners organize burger orders, and also to allow customers to join in on the fun by making their own!
 
+## Portfolio - Updated
+https://louisys-carleton.github.io/Responsive-Portfolio/
 
 <img src="./public/assets/img/EAT-DA-BURGER.png" alt="Eat-da-burger">
 
