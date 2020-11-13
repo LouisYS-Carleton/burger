@@ -1,12 +1,8 @@
 # Eat-Da-Burger
 A restaurant app to help burger shop owners organize burger orders, and also to allow customers to join in on the fun by making their own!
 
-## Deployed App on Heroku
-https://note-taker-carletonu.herokuapp.com/
 
-<img src="./README_pictures/terminal.png" alt="Terminal prompts">
-<img src="./README_pictures/index.png" alt="Home page">
-<img src="./README_pictures/hellouser.png" alt="Note page">
+<img src="./public/assets/img/EAT-DA-BURGER.png" alt="Eat-da-burger">
 
 ## Table of Contents:
 * [Installation](#installation)
