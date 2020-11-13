@@ -1,9 +1,7 @@
-// Load dependencies.
 const mysql = require("mysql2");
 
 let connection;
 
-// Configure mysql database connection.
 try {
   if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection(process.env.JAWSDB_URL);
@@ -20,5 +18,4 @@ try {
   if (err) throw err;
 }
 
-// Export the connection to be used in other files.
 module.exports = connection.promise();
