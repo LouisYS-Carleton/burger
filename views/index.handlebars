@@ -69,7 +69,7 @@
 </div>
 
 <script>
-    document.getElementById("insert-burger-button").addEventListener("submit", function (event) {
+    document.getElementById("input-form").addEventListener("submit", function (event) {
         event.preventDefault()
         const newBurger = {
             burger_name: document.getElementById("insert-burger-field").value.trim(),
@@ -87,7 +87,7 @@
 
     document.querySelectorAll("#yum-btn").forEach(button => {
         button.addEventListener("click", function () {
-            const id = this.getAttribute("data-id")
+            const id = this.getAttribute("")
             fetch(`/api/burgers/${id}`, {
                 method: "PATCH",
                 headers: { 'Content-Type': 'application/json' },

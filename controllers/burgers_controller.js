@@ -22,7 +22,7 @@ router.get('/app/burgers', async (req, res) => {
 
 router.post('/app/burgers', async (req, res) => {
     try {
-        const data = await burger.insertOne('burgers', req.body.insertburger, false);
+        const data = await burger.insertOne('burgers', req.body.burger_name, req.body.devoured);
         res.status(201).json(data);
     } catch (err) {
         res.status(500).json(err)
