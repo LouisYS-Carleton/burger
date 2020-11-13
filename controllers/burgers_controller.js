@@ -27,7 +27,16 @@ router.post('/app/burgers', async (req, res) => {
     } catch (err) {
         res.status(500).json(err)
     }
-    // console.log(req)
+})
+
+router.patch('/api/burgers/', async (req, res) => {
+    try {
+        // console.log(req.body.id)
+        const data = await burger.updateOne('burgers', parseInt(req.body.id));
+        res.status(201).json(data);
+    } catch (err) {
+        res.status(500).json(err)
+    }
 })
 
 module.exports = router

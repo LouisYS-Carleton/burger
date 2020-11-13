@@ -16,7 +16,8 @@ const orm = {
     updateOne: async (burgerTableName, burgerID) => {
         const burgerQuery = 'UPDATE ?? SET devoured = true  WHERE id = ??';
 
-        const [rows] = await connection.query(burgerQuery, [burgerTableName], [burgerID])
+        const [rows] = await connection.query(burgerQuery, [burgerTableName, burgerID])
+        return rows;
     }
 };
 

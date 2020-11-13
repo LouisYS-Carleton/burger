@@ -7,8 +7,8 @@ const burgerSpecificInput = {
     insertOne: async function (burgerTableName, newBurger, status) {
         return orm.insertOne(burgerTableName, newBurger, status)
     },
-    updateOne: async function (burgerID) {
-        return orm.updateOne(burgerID)
+    updateOne: async function (burgerTableName, burgerID) {
+        return orm.updateOne(burgerTableName, burgerID)
     }
 };
 
