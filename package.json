@@ -53,7 +53,6 @@
     "minimatch": "^3.0.4",
     "minimist": "^1.2.5",
     "ms": "^2.0.0",
-    "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "named-placeholders": "^1.1.2",
     "negotiator": "^0.6.2",
